@@ -4,16 +4,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="src/css/estilo.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/style/estilo.css') }}">
         <title>UNES</title>
     </head>
     <body class="fundo2">
 
-        <img src="src/img/logo.png" alt="">
+        <img src="{{ url_for('static',filename='/img/logo.png')}}" alt="">
         <div class="indiceprimario">
-            <a href="index.html" class="indice">Home</a> |
-            <a href="quemsomos.html" class="indice">Quem Somos</a> |
-            <a href="contato.html" class="indice">Contato</a>
+            <a href="/" class="indice">Home</a> |
+            <a href="/quemsomos" class="indice">Quem Somos</a> |
+            <a href="/contato" class="indice">Contato</a>
         </div>
         <br>
         <h2>Entre em contato</h2>
