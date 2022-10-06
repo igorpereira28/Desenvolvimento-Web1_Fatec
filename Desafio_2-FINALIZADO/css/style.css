@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    background-color: gray;
+}
+
+.navbar{
+    background-color: rgb(253, 165, 0);
+    padding: 3px 0px 25px 0px;
+    text-align: center;
+    width: 100%;
+}
+.navbar h2{
+    color: gray;
+    font-size: 200%;
+}
+.navbar span{
+    color: #fff;
+}
+.navbar a{
+    text-decoration: none;
+    color: #fff; 
+}
+.navbar nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 35% 0 35%;
+}
+    
+.container_post{
+    background-color: #fff;
+    width: 38%;
+    margin-top: 1%;
+    padding: 1% 1% 1% 1%;
+    margin-top: 2%;
+    margin-left: 25%;
+    float: left;
+}
+
+.container_post h2{
+   color: rgb(238, 181, 75);
+}
+
+.container_post h4{
+    color: rgb(238, 181, 75);
+}
+
+.container_post img{
+    width:98%;
+    margin-top: 2%;
+}
+
+.container_postlateral{
+    float: right;
+    background-color: #fff;
+    width: 13%;
+    margin-top: 2%;
+    margin-right: 20%;
+    
+}
+
+.container_postlateral hr{
+    width: 90%;
+}
+.info{
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.info p {
+    color: rgb(0, 0, 0);
+}
+
+.info li {
+    color: rgb(238, 181, 75);
+    list-style: none;
+}
+
+.rodape{
+    margin-top: 2vh;
+    background-color: rgb(87, 85, 85);
+    text-align: center;
+    width: 55%;
+    height: 25px;
+    margin-left: 25%;
+    margin-bottom: 2%;
+    float:left;
+}
