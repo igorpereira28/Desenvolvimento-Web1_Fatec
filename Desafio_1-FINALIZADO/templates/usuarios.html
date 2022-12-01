@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/style/estilo.css') }}">
+        <title>UNES</title>
+    </head>
+    <body class="fundo2">
+
+        <img src="{{ url_for('static',filename='/img/logo.png')}}" alt="">
+        <div class="indiceprimario">
+            <a href="/" class="indice">Home</a> |
+            <a href="/quemsomos" class="indice">Quem Somos</a> |
+            <a href="/contato" class="indice">Contato</a> |
+            <a href="/usuarios" class="indice">Verificar e-mails</a>        
+        </div>
+        <br>
+        <table class="display" style="width: 50%; margin: auto;">
+            <tr>
+                <th>E-mail</th>
+                <th>Assunto</th>
+                <th>Descrição</th>
+
+            </tr>
+            
+            {% for usuario in userDetails %}
+            
+                <tr>
+                    <td>{{usuario[1]}}</td>
+                    <td>{{usuario[2]}}</td>
+                    <td>{{usuario[3]}}</td>
+                </tr>    
+
+            {% endfor %}
+
+        </table>
+    </body>

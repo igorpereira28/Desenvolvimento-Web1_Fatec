@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
+        {% block head %}
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/style/estilo.css') }}">
         <title>UNES</title>
+        {% endblock %}
     </head>
     <body class="fundo2">
 
@@ -13,21 +15,22 @@
         <div class="indiceprimario">
             <a href="/" class="indice">Home</a> |
             <a href="/quemsomos" class="indice">Quem Somos</a> |
-            <a href="/contato" class="indice">Contato</a>
+            <a href="/contato" class="indice">Contato</a> |
+            <a href="/usuarios" class="indice">Verificar e-mails</a>
         </div>
         <br>
         <h2>Entre em contato</h2>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis laborum natus officia sint et assumenda eaque explicabo architecto ratione.
         <hr>
-        <form>
+        <form method="POST" action="">
             Seu e-mail: <br>
-            <input type="email"> <br>
+            <input type="email" name="email"> <br>
 
             Assunto: <br>
-            <input type="text"> <br>
+            <input type="text" name="assunto"> <br>
 
             Descrição: <br>
-            <textarea></textarea> <br>
+            <textarea name="descricao"></textarea> <br>
 
             <button name="enviar">Enviar</button>
         </form>

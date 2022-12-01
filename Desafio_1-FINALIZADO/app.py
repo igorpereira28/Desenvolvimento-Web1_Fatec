@@ -1,70 +1,58 @@
 # flask -> framework de desenvolvimento de sites e de apis do python
 
-#renfer_template -> ao invés de xbiri um texto, carregue uma página! ex:
-#ao invés disso
-    #def homepage(): 
-        #return "Este é o meu terceiro site!"
-
-#coloco isso:
-    #def homepage(): 
-        #return render_template("homepage.html")
-
-from flask import Flask, render_template, url_for
-
-
-#documentação do flask diz +/- que sempre que for iniciar seu site, utilize:
+from flask import Flask, render_template, url_for, request
+import mariadb
 
 app = Flask(__name__)
 
 
-#criar a primeira página do site
-
-
-#toda página têm
-
-#route -> caminho que vêm depois do seu domínio
-
-#função -> o que você quer exibir naquela página
-
-#template
-
-
-#app por cause de app = Flask(__name__)
-
 #definir route
 
+try:
+    connection = mariadb.connect(
+        user="root",
+        password="1234",
+        host="127.0.0.1",
+        port=3306,
+        database = "contatos"
+    )
+except mariadb.Error as e:
+   print(f"Error connecting to the database: {e}")
+
 @app.route("/")
-
-
 #definindo função
-
 def homepage(): 
-
     return render_template("index.html")
 
 
 #criar página de contatos
-
-@app.route("/contato")
-
-
+@app.route('/contato', methods=['GET', 'POST'])
 def contato():
-    return render_template("contato.html")
-
+    if request.method == "POST":
+        email = request.form['email']
+        assunto = request.form['assunto']
+        descricao = request.form['descricao']
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO contatos(email, assunto, descricao) VALUES (?, ?, ?)", (email, assunto, descricao))
+        connection.commit()
+        return render_template('contato.html')
+    return render_template('contato.html')
     
 
 @app.route("/quemsomos")
-
-
 def quemsomos():
     return render_template("quemsomos.html")
 
+@app.route('/usuarios')
+def usuarios():
+    cursor = connection.cursor()
+    usuarios = cursor.execute("SELECT * FROM contatos")
+    if usuarios !='':
+        userDetails = cursor.fetchall()
 
-#colocar o site no ar
+        return render_template("usuarios.html", userDetails=userDetails)
+    return render_template("usuarios.html")
 
-# app.run()
-
-#dando debug no site, rodar automático
 
 if __name__ == "__main__":
 
